@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import LinksList from "../components/LinksList";
-import Link from "../components/Link";
+import LinksForm from "../components/LinksForm";
 
 const LinksBox = () => {
 
@@ -33,12 +33,20 @@ const LinksBox = () => {
           ]
     );
 
+    const addLink = (submittedLink) => {
+        submittedLink.id = Date.now()
+        const updatedLinks = [...links, submittedLink];
+        setLinks(updatedLinks);
+    };
+
 
     return (
         <>
         <h1>Upcoming Film Releases for the UK</h1>
         <LinksList links = {links}/>
         <a href="https://www.imdb.com/calendar/?region=gb">View more upcoming releases!</a>
+        <h2>Add your own movie:</h2>
+        <LinksForm onMovieSubmit={(movie) => addLink(movie)}/>
         </>
         
     )
