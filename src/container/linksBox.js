@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-// import the list and main page 
+import LinksList from "../components/LinksList";
+import Link from "../components/Link";
 
 const LinksBox = () => {
 
@@ -36,7 +37,10 @@ const LinksBox = () => {
     return (
         <>
         <h1>Upcoming Film Releases for the UK</h1>
+        <LinksList links = {links}/>
+        <a href="https://www.imdb.com/calendar/?region=gb">View more upcoming releases!</a>
         </>
+        
     )
 };
 
